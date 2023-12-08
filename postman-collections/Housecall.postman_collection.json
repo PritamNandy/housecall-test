@@ -1,0 +1,1657 @@
+{
+	"info": {
+		"_postman_id": "11987b20-a558-4e8a-9867-2661b5c6363f",
+		"name": "Housecall",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10809465",
+		"_collection_link": "https://bold-shadow-9963.postman.co/workspace/My-Workspace~c41f6f97-a2e6-4050-8331-e4a16f517f33/collection/10809465-11987b20-a558-4e8a-9867-2661b5c6363f?action=share&source=collection_link&creator=10809465"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Sign In",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if(pm.response.to.have.status(200)){\r",
+									"    var response = pm.response.json();\r",
+									"    pm.environment.set(\"TOKEN\", response.token);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "{{email}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/sign-in",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sign-in"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "{{email}}",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/sign-in",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"sign-in"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Dec 2023 17:56:32 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Dec 2023 17:56:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOGMxOWMyYTRlMmMxNzJmOGM1YmJkNzQ5OGYwZDk0NTAzMzEyMjYwYzI5MmVhMmE1YzI1NDE5ODhhNGNkYjAyOWVjNThiMzcxZWExODFhZTgiLCJpYXQiOjE3MDE4ODUzOTIuNjgzMzEsIm5iZiI6MTcwMTg4NTM5Mi42ODMzMTIsImV4cCI6MTczMzUwNzc5Mi42MTM0MzcsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.JGk2ae6eLaraulcsEmfOtKiKs1gq_tyiLBgZyFuBk-lVNpYpduc3gc2zdy65-jZtTbM6p1jM32EGK0ToE7a4y9yPLHVCopWcb5tnJ3dM8LUd9BiDkba1ltLLVwvH1QP-ZuTrZvdjnK1VMfGSTHHeEi4dz1ulEvYtSVNLlwUoc6pu4_TeX54ormqMLK5R7dXJvWhbui6X9kDl82POmoiJEDb4eyeRMx8c0vZEN1DPc7XO5m2nnP381fVpUQnkw17XfUfz1hFZySrf8BKpsG-x4OTAUVw9YuWWH2Rif_m8LTNGL7hh5TN1g6RaBqqcNU7BY5mMaZjop8ISsDAOz47wf0dtqh2ZKaXCip78mv2xo5xIVdrotm0vB6kIea-8HQrqiVNFPpEBMNCnATnus7b2n-Bxqd0kAOrR58B0ihSRo5NTo7O3IeTcStp-t1jZeNB8UK0xPgz1UOjyUhiKjuXssHX7IHE-AxKOIiMFsU6H4Jfcgx9as15XJaq4PH3hoXtrxWp8IfyIqU73Cp-s48h7qm1v12_ed3EpHcvwNzAB86TbokCxh3rzJ0DFSmN7WGai8ynKhEGfIUcvy7kIF5QPPWRxkiV6RPnH3NsLQ4d9RhTElroi656Mwo7zIJAcuvQeWa7LWb2GznDXEa7daGJ1_ozvDKoiGw4Gh6KoXUkZ7SA; expires=Wed, 06 Dec 2023 18:56:32 GMT; Max-Age=3600; path=/; httponly; samesite=lax"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"alert\": \"Login Successfully\",\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOGMxOWMyYTRlMmMxNzJmOGM1YmJkNzQ5OGYwZDk0NTAzMzEyMjYwYzI5MmVhMmE1YzI1NDE5ODhhNGNkYjAyOWVjNThiMzcxZWExODFhZTgiLCJpYXQiOjE3MDE4ODUzOTIuNjgzMzEsIm5iZiI6MTcwMTg4NTM5Mi42ODMzMTIsImV4cCI6MTczMzUwNzc5Mi42MTM0MzcsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.JGk2ae6eLaraulcsEmfOtKiKs1gq_tyiLBgZyFuBk-lVNpYpduc3gc2zdy65-jZtTbM6p1jM32EGK0ToE7a4y9yPLHVCopWcb5tnJ3dM8LUd9BiDkba1ltLLVwvH1QP-ZuTrZvdjnK1VMfGSTHHeEi4dz1ulEvYtSVNLlwUoc6pu4_TeX54ormqMLK5R7dXJvWhbui6X9kDl82POmoiJEDb4eyeRMx8c0vZEN1DPc7XO5m2nnP381fVpUQnkw17XfUfz1hFZySrf8BKpsG-x4OTAUVw9YuWWH2Rif_m8LTNGL7hh5TN1g6RaBqqcNU7BY5mMaZjop8ISsDAOz47wf0dtqh2ZKaXCip78mv2xo5xIVdrotm0vB6kIea-8HQrqiVNFPpEBMNCnATnus7b2n-Bxqd0kAOrR58B0ihSRo5NTo7O3IeTcStp-t1jZeNB8UK0xPgz1UOjyUhiKjuXssHX7IHE-AxKOIiMFsU6H4Jfcgx9as15XJaq4PH3hoXtrxWp8IfyIqU73Cp-s48h7qm1v12_ed3EpHcvwNzAB86TbokCxh3rzJ0DFSmN7WGai8ynKhEGfIUcvy7kIF5QPPWRxkiV6RPnH3NsLQ4d9RhTElroi656Mwo7zIJAcuvQeWa7LWb2GznDXEa7daGJ1_ozvDKoiGw4Gh6KoXUkZ7SA\"\n}"
+						},
+						{
+							"name": "422 - Invalid Input",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "{{email}}",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/sign-in",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"sign-in"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Dec 2023 17:57:24 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Dec 2023 17:57:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"errors\": {\n        \"email\": [\n            \"The email field is required.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "401 - Failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "{{email}}4",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "{{password}}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/sign-in",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"sign-in"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Dec 2023 17:57:40 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Dec 2023 17:57:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"alert\": \"Login Failed. Please Check Credentials\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "User 3",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "user3@example.com",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"description": "required",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/sign-up",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sign-up"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "422 - Invalid Input",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "User 2",
+											"description": "required",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "user2@example.com",
+											"description": "required",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"description": "required",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/sign-up",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"sign-up"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Dec 2023 17:58:00 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Dec 2023 17:58:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"errors\": {\n        \"email\": [\n            \"The email field is required.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "422 - Duplicate Email",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "User 2",
+											"description": "required",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "user2@example.com",
+											"description": "required",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"description": "required",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/sign-up",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"sign-up"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Dec 2023 17:58:12 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Dec 2023 17:58:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"errors\": {\n        \"email\": [\n            \"The email has already been taken.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "200 - Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "User 3",
+											"description": "required",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "user3@example.com",
+											"description": "required",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"description": "required",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/sign-up",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"sign-up"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Dec 2023 17:58:37 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Dec 2023 17:58:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "56"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"alert\": \"Registered Successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Drugs Public Route",
+			"item": [
+				{
+					"name": "Get Drugs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/get-drugs?drug_name=f",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"get-drugs"
+							],
+							"query": [
+								{
+									"key": "drug_name",
+									"value": "f"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/get-drugs?drug_name=f",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"get-drugs"
+									],
+									"query": [
+										{
+											"key": "drug_name",
+											"value": "f"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 16:18:42 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 16:18:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"rxcui\": \"1014431\",\n            \"name\": \"alanine 7.1 MG/ML / arginine 9.5 MG/ML / cysteine 0.16 MG/ML / glycine 14 MG/ML / histidine 2.8 MG/ML / isoleucine 6.9 MG/ML / leucine 9.1 MG/ML / lysine 7.3 MG/ML / methionine 5.3 MG/ML / phenylalanine 5.6 MG/ML / phosphoric acid 1.2 MG/ML / proline 11.2 MG/ML / serine 5.9 MG/ML / sodium bisulfite 1 MG/ML / threonine 4 MG/ML / tryptophan 1.5 MG/ML / valine 6.6 MG/ML Injectable Solution [Freamine III 10]\",\n            \"ingredient_base_names\": [\n                \"threonine\",\n                \"tryptophan\",\n                \"arginine\",\n                \"valine\",\n                \"cysteine\",\n                \"sodium bisulfite\",\n                \"alanine\",\n                \"glycine\",\n                \"histidine\",\n                \"isoleucine\",\n                \"leucine\",\n                \"lysine\",\n                \"methionine\",\n                \"phenylalanine\",\n                \"phosphoric acid\",\n                \"proline\",\n                \"serine\"\n            ],\n            \"dosage\": [\n                \"Injectable Product\"\n            ]\n        },\n        {\n            \"rxcui\": \"1090639\",\n            \"name\": \"alanine 8.8 MG/ML / arginine 4.89 MG/ML / calcium chloride 0.004 MEQ/ML / dibasic potassium phosphate 2.61 MG/ML / glucose 100 MG/ML / glycine 4.38 MG/ML / histidine 2.04 MG/ML / isoleucine 2.55 MG/ML / leucine 3.11 MG/ML / lysine 2.47 MG/ML / magnesium chloride 0.01 MEQ/ML / methionine 1.7 MG/ML / phenylalanine 2.38 MG/ML / proline 2.89 MG/ML / serine 2.13 MG/ML / sodium acetate trihydrate 2.97 MG/ML / sodium chloride 0.013 MEQ/ML / threonine 1.79 MG/ML / tryptophan 0.77 MG/ML / tyrosine 0.17 MG/ML / valine 2.47 MG/ML Injectable Solution [Clinimix E 4.25/10]\",\n            \"ingredient_base_names\": [\n                \"threonine\",\n                \"tryptophan\",\n                \"arginine\",\n                \"tyrosine\",\n                \"valine\",\n                \"calcium chloride\",\n                \"alanine\",\n                \"glucose\",\n                \"glycine\",\n                \"histidine\",\n                \"dibasic potassium phosphate\",\n                \"sodium acetate\",\n                \"isoleucine\",\n                \"leucine\",\n                \"lysine\",\n                \"magnesium chloride\",\n                \"methionine\",\n                \"phenylalanine\",\n                \"proline\",\n                \"serine\",\n                \"sodium chloride\"\n            ],\n            \"dosage\": [\n                \"Injectable Product\"\n            ]\n        },\n        {\n            \"rxcui\": \"1094087\",\n            \"name\": \"arginine 6 MG/ML / histidine 4.29 MG/ML / isoleucine 4.62 MG/ML / leucine 7.26 MG/ML / lysine 5.35 MG/ML / methionine 7.26 MG/ML / phenylalanine 7.26 MG/ML / threonine 3.3 MG/ML / tryptophan 1.65 MG/ML / valine 5.28 MG/ML Injectable Solution [Aminosyn-RF 5.2 %, Sulfite-Free]\",\n            \"ingredient_base_names\": [\n                \"threonine\",\n                \"tryptophan\",\n                \"arginine\",\n                \"valine\",\n                \"histidine\",\n                \"isoleucine\",\n                \"leucine\",\n                \"lysine\",\n                \"methionine\",\n                \"phenylalanine\"\n            ],\n            \"dosage\": [\n                \"Injectable Product\"\n            ]\n        },\n        {\n            \"rxcui\": \"1189260\",\n            \"name\": \"alanine 9 MG/ML / arginine 6.9 MG/ML / glycine 9 MG/ML / histidine 2.1 MG/ML / isoleucine 5.1 MG/ML / leucine 6.6 MG/ML / lysine 5.1 MG/ML / magnesium chloride 0.005 MEQ/ML / methionine 2.8 MG/ML / phenylalanine 3.1 MG/ML / potassium chloride 0.065 MEQ/ML / proline 6.1 MG/ML / serine 3 MG/ML / sodium chloride 0.00479 MEQ/ML / sodium phosphate, dibasic 0.0299 MEQ/ML / threonine 3.7 MG/ML / tryptophan 1.2 MG/ML / tyrosine 0.44 MG/ML / valine 5.6 MG/ML Injectable Solution [Aminosyn 7 % with Electrolytes, Sulfite-Free]\",\n            \"ingredient_base_names\": [\n                \"threonine\",\n                \"tryptophan\",\n                \"arginine\",\n                \"tyrosine\",\n                \"valine\",\n                \"sodium phosphate, dibasic\",\n                \"alanine\",\n                \"glycine\",\n                \"histidine\",\n                \"isoleucine\",\n                \"leucine\",\n                \"lysine\",\n                \"magnesium chloride\",\n                \"methionine\",\n                \"phenylalanine\",\n                \"potassium chloride\",\n                \"proline\",\n                \"serine\",\n                \"sodium chloride\"\n            ],\n            \"dosage\": [\n                \"Injectable Product\"\n            ]\n        },\n        {\n            \"rxcui\": \"1189310\",\n            \"name\": \"alanine 8.44 MG/ML / arginine 8.65 MG/ML / aspartate 5.95 MG/ML / glutamate 6.27 MG/ML / glycine 4.25 MG/ML / histidine 2.55 MG/ML / isoleucine 5.61 MG/ML / leucine 8.5 MG/ML / lysine 8.93 MG/ML / magnesium chloride 0.005 MEQ/ML / methionine 1.46 MG/ML / phenylalanine 2.53 MG/ML / potassium chloride 0.066 MEQ/ML / proline 6.14 MG/ML / serine 4.5 MG/ML / sodium chloride 0.01 MEQ/ML / sodium phosphate, dibasic 0.0299 MEQ/ML / threonine 3.4 MG/ML / tryptophan 1.7 MG/ML / tyrosine 2.3 MG/ML / valine 4.25 MG/ML Injectable Solution [Aminosyn II 8.5 % with Electrolytes, Sulfite-Free]\",\n            \"ingredient_base_names\": [\n                \"threonine\",\n                \"tryptophan\",\n                \"arginine\",\n                \"tyrosine\",\n                \"valine\",\n                \"sodium phosphate, dibasic\",\n                \"aspartate\",\n                \"alanine\",\n                \"glycine\",\n                \"histidine\",\n                \"isoleucine\",\n                \"leucine\",\n                \"lysine\",\n                \"magnesium chloride\",\n                \"methionine\",\n                \"glutamate\",\n                \"phenylalanine\",\n                \"potassium chloride\",\n                \"proline\",\n                \"serine\",\n                \"sodium chloride\"\n            ],\n            \"dosage\": [\n                \"Injectable Product\"\n            ]\n        }\n    ]\n}"
+						},
+						{
+							"name": "No Result Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/get-drugs?drug_name=t",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"get-drugs"
+									],
+									"query": [
+										{
+											"key": "drug_name",
+											"value": "t"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 16:19:06 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 16:19:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"data\": \"No Result Found\"\n}"
+						},
+						{
+							"name": "No Drug Name",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/get-drugs",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"get-drugs"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 16:19:20 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 16:19:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "56"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"alert\": \"Drug Name is Required\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Drug Private Route",
+			"item": [
+				{
+					"name": "Add Drug",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "rxcui",
+									"value": "1014431",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/add-drug",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"add-drug"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "rxcui",
+											"value": "1014431",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/add-drug",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"add-drug"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 17:57:09 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 17:57:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Drug Added\"\n}"
+						},
+						{
+							"name": "Drug Exists in User List",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "rxcui",
+											"value": "1014431",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/add-drug",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"add-drug"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 17:57:18 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 17:57:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Drug Exists in your list\"\n}"
+						},
+						{
+							"name": "Invalid Drug ID",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "rxcui",
+											"value": "10144310",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/add-drug",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"add-drug"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 17:57:33 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 17:57:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "56"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"errors\": {\n        \"rxcui\": [\n            \"Invalid Drug ID\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "rxcui",
+											"value": "1014431",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/add-drug",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"add-drug"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 18:10:08 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 18:10:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"alert\": \"unauthorized\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Drug",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/delete-drug/1014431",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"delete-drug",
+								"1014431"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/delete-drug/1014431",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"delete-drug",
+										"1014431"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 17:53:11 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 17:53:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Medicine Deleted\"\n}"
+						},
+						{
+							"name": "Drug Not Exists in User List",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/delete-drug/1014431",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"delete-drug",
+										"1014431"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 17:53:59 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 17:53:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Drug doesn't exists in your list\"\n}"
+						},
+						{
+							"name": "Invalid Drug ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/delete-drug/10144310",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"delete-drug",
+										"10144310"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 17:56:42 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 17:56:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"errors\": {\n        \"rxcui\": [\n            \"Invalid Drug ID\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/delete-drug/1014431",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"delete-drug",
+										"1014431"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 18:10:19 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 18:10:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"alert\": \"unauthorized\"\n}"
+						}
+					]
+				},
+				{
+					"name": "User Drugs List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/user-drugs-list",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"user-drugs-list"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/user-drugs-list",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"user-drugs-list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 18:09:39 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 18:09:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"rxcui\": 1014431,\n            \"name\": \"alanine 7.1 MG/ML / arginine 9.5 MG/ML / cysteine 0.16 MG/ML / glycine 14 MG/ML / histidine 2.8 MG/ML / isoleucine 6.9 MG/ML / leucine 9.1 MG/ML / lysine 7.3 MG/ML / methionine 5.3 MG/ML / phenylalanine 5.6 MG/ML / phosphoric acid 1.2 MG/ML / proline 11.2 MG/ML / serine 5.9 MG/ML / sodium bisulfite 1 MG/ML / threonine 4 MG/ML / tryptophan 1.5 MG/ML / valine 6.6 MG/ML Injectable Solution [Freamine III 10]\",\n            \"ingredient_base_names\": [\n                \"threonine\",\n                \"tryptophan\",\n                \"arginine\",\n                \"valine\",\n                \"cysteine\",\n                \"sodium bisulfite\",\n                \"alanine\",\n                \"glycine\",\n                \"histidine\",\n                \"isoleucine\",\n                \"leucine\",\n                \"lysine\",\n                \"methionine\",\n                \"phenylalanine\",\n                \"phosphoric acid\",\n                \"proline\",\n                \"serine\"\n            ],\n            \"dosage\": [\n                \"Injectable Product\"\n            ]\n        }\n    ]\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{TOKEN}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/user-drugs-list",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"user-drugs-list"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 18:10:53 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 18:10:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "56"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"alert\": \"unauthorized\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
